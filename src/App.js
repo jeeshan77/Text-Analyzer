@@ -2,12 +2,13 @@
 // import { type } from '@testing-library/user-event/dist/type';
 import './App.css';
 import Alert from './Components/Alert';
-// import About from './Components/About';
+import About from './Components/About';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Footer from './Components/Footer';
 // import React from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 
@@ -70,14 +71,20 @@ function App() {
   // </Router>
   return (
     <>
-      <div>
-        <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} aboutText="About" />
-        <Alert alert={alert} />
-      </div>
-      <TextForm mode={mode} showAlert={showAlert} />
-      {/* <About /> */}
-      <div className="container my-3">
-      </div>
+      <Router >
+        <div>
+          <Navbar title="Text Analyzer " mode={mode} toggleMode={toggleMode} aboutText="About" />
+          <Alert alert={alert} />
+            <div className="container my-3">
+          <Routes>
+            <Route exact path='/' element={<TextForm heading = "Enter the text to analyze below" mode={mode} showAlert={showAlert} />} />
+            <Route exact path="/about" element={<About mode ={mode}/>} />
+            {/* <Route path="/contact" element={<Contact />} /> */}
+          </Routes>
+            </div>
+        </div>
+      </Router>
+      <Footer/>
     </>
   );
 }
