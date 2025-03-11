@@ -2,13 +2,13 @@
 // import { type } from '@testing-library/user-event/dist/type';
 import './App.css';
 import Alert from './Components/Alert';
-import About from './Components/About';
+// import About from './Components/About';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
 import React, { useState } from 'react';
 import Footer from './Components/Footer';
 // import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 
@@ -31,13 +31,13 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#120b0b'
       showAlert(" Dark mode has been Enable", "success")
-      document.title = "TextUtils - Dark Mode"
+      document.title = "Text Analyzer - Dark Mode"
     }
     else {
       setMode('light');
       document.body.style.backgroundColor = 'white'
       showAlert(" Light mode has been Enable", "success")
-      document.title = "TextUtils - Home"
+      document.title = "Text Analyzer"
     }
   }
   // const [clrmode, setClrMode] = useState('Green')
@@ -56,37 +56,47 @@ function App() {
   // const About = () => <h2>About Page</h2>;
   // const Contact = () => <h2>Contact Page</h2>;
 
+ 
   // return (
-  // <>
-  // <Router>
-  //   <div>
-  //   <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} aboutText="About"/>
-  //   <Alert alert={alert}/>
-  //     <Routes>
-  //       <Route exact path="/" element={<TextForm mode = {mode}showAlert={showAlert}/>} />
-  //       <Route exact path="/about" element= {<About/>} />
-  //       {/* <Route path="/contact" element={<Contact />} /> */}
-  //     </Routes>
-  //   </div>
-  // </Router>
+  //   <>
+  //     <Router basename="/Text-Analyzer" >
+  //       <div>
+  //         <Navbar title="Text Analyzer " mode={mode} toggleMode={toggleMode} aboutText="About" />
+  //         <Alert alert={alert} />
+  //           <div className="container my-3">
+  //         <Routes>
+  //           <Route exact path='/' element={<TextForm heading = "Enter the text to analyze below" mode={mode} showAlert={showAlert} />} />
+  //           <Route exact path="/about" element={<About mode ={mode}/>} />
+  //           {/* <Route path="/contact" element={<Contact />} /> */}
+  //         </Routes>
+  //           </div>
+  //       </div>
+  //     </Router>
+  //     <Footer/>
+  //   </>
+  // );
+
   return (
     <>
-      <Router >
-        <div>
-          <Navbar title="Text Analyzer " mode={mode} toggleMode={toggleMode} aboutText="About" />
-          <Alert alert={alert} />
-            <div className="container my-3">
-          <Routes>
-            <Route exact path='/' element={<TextForm heading = "Enter the text to analyze below" mode={mode} showAlert={showAlert} />} />
-            <Route exact path="/about" element={<About mode ={mode}/>} />
-            {/* <Route path="/contact" element={<Contact />} /> */}
-          </Routes>
-            </div>
-        </div>
-      </Router>
-      <Footer/>
+    <div>
+      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} aboutText="About"/>
+      <Alert alert={alert}/>
+    </div>
+    <div className="container my-3">
+      <TextForm heading = "Enter the text to analyze below" mode={mode} showAlert={showAlert}/>
+    </div>
+    <Footer/>
+      {/* <div>
+        <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} aboutText="About" />
+        <Alert alert={alert} />
+      </div>
+      <div className="container my-3">
+      <TextForm mode={mode} showAlert={showAlert} />
+        <div/>
+      <About /> */}
     </>
-  );
+);
+
 }
 
 export default App;
