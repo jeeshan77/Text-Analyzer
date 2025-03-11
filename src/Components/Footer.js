@@ -15,7 +15,7 @@ export class Footer extends Component {
           <div className="container mb-2 text-center">
             <span className="text-muted">
               Made with ❤️ by Jeeshan.
-              <a style={styles} href="https://github.com/jeeshan77/TextUtils">
+              <a style={styles} href="https://github.com/jeeshan77">
                 <FaGithub /> 
               </a>
             </span>
